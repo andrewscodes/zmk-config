@@ -29,13 +29,13 @@
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   | EQUAL |
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   '   |
 // | SHIFT |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   | BSPC  |
-// | CTRL  |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  |       |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+// | CTRL  |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  | RGB   |  N   |  M    |  ,    |  .   |   /   | SHIFT |
 //               | GUI | ALT  | CAPS | LOWER|  ENTER |  | SPACE | RAISE| HOME  | END   | GUI  |
             bindings = <
-&kp ESC   &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                            &kp N6     &kp N7    &kp N8    &kp N9   &kp N0   &kp EQUAL
-&kp TAB   &kp Q  &kp W    &kp E    &kp R     &kp T                             &kp Y      &kp U     &kp I     &kp O    &kp P    &kp SQT
-&kp LSHFT &kp A  &kp S    &kp D    &kp F     &kp G                             &kp H      &kp J     &kp K     &kp L    &kp SEMI &kp BSPC
-&kp LCTRL &kp Z  &kp X    &kp C    &kp V     &kp B      &kp C_MUTE &none       &kp N      &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+&kp ESC   &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                                  &kp N6     &kp N7    &kp N8    &kp N9   &kp N0   &kp EQUAL
+&kp TAB   &kp Q  &kp W    &kp E    &kp R     &kp T                                   &kp Y      &kp U     &kp I     &kp O    &kp P    &kp SQT
+&kp LSHFT &kp A  &kp S    &kp D    &kp F     &kp G                                   &kp H      &kp J     &kp K     &kp L    &kp SEMI &kp BSPC
+&kp LCTRL &kp Z  &kp X    &kp C    &kp V     &kp B      &kp C_MUTE &rgb_ug RGB_TOG   &kp N      &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
                  &kp LGUI &kp LALT &kp CAPS  &mo LOWER  &kp RET  &kp SPACE     &mo RAISE  &kp HOME  &kp END   &kp RGUI
             >;
 
@@ -59,7 +59,7 @@
                     &trans    &trans    &trans    &trans     &trans &trans  &trans    &trans   &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
         raise_layer {
@@ -78,7 +78,7 @@
                         &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans    &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
         adjust_layer {
