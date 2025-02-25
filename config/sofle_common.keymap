@@ -12,24 +12,25 @@
 / {
 
     behaviors {
-        rgb_encoder_bri: rgb_encoder {
+        rgb_encoder_bri: rgb_encoder_bri {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+            bindings = <&rgb_underglow RGB_BRI>, <&rgb_underglow RGB_BRD>;
         };
 
-        rgb_encoder_hu: rgb_encoder {
+        rgb_encoder_hu: rgb_encoder_hu {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_HUD>, <&rgb_ug RGB_HUI>;
+            bindings = <&rgb_underglow RGB_HUD>, <&rgb_underglow RGB_HUI>;
         };
 
-        rgb_encoder_sa: rgb_encoder {
+        rgb_encoder_sa: rgb_encoder_sa {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_SAD>, <&rgb_ug RGB_SAI>;
+            bindings = <&rgb_underglow RGB_SAD>, <&rgb_underglow RGB_SAI>;
         };
     };
+
     
 
 
@@ -47,77 +48,77 @@
 
         default_layer {
             display-name = "default";
-// ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   | EQUAL |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   '   |
-// | SHIFT |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   | BSPC  |
-// | CTRL  |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  | RGB   |  N   |  M    |  ,    |  .   |   /   | DEL   |
-//               | GUI | ALT  | CAPS | LOWER|  ENTER |  | SPACE | RAISE| HOME  | END   | GUI  |
-            bindings = <
-&kp ESC   &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                                  &kp N6     &kp N7    &kp N8    &kp N9   &kp N0   &kp EQUAL
-&kp TAB   &kp Q  &kp W    &kp E    &kp R     &kp T                                   &kp Y      &kp U     &kp I     &kp O    &kp P    &kp SQT
-&kp LSHFT &kp A  &kp S    &kp D    &kp F     &kp G                                   &kp H      &kp J     &kp K     &kp L    &kp SEMI &kp BSPC
-&kp LCTRL &kp Z  &kp X    &kp C    &kp V     &kp B      &kp C_MUTE &rgb_ug RGB_TOG   &kp N      &kp M     &kp COMMA &kp DOT  &kp FSLH &kp DEL
-                 &kp LGUI &kp LALT &kp CAPS  &mo LOWER  &kp RET    &kp SPACE         &mo RAISE  &kp HOME  &kp END   &kp RGUI
-            >;
+            // ------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   | EQUAL |
+            // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   '   |
+            // | SHIFT |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   | BSPC  |
+            // | CTRL  |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  | RGB   |  N   |  M    |  ,    |  .   |   /   | DEL   |
+            //               | GUI | ALT  | CAPS | LOWER|  ENTER |  | SPACE | RAISE| HOME  | END   | GUI  |
+                        bindings = <
+            &kp ESC   &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                                  &kp N6     &kp N7    &kp N8    &kp N9   &kp N0   &kp EQUAL
+            &kp TAB   &kp Q  &kp W    &kp E    &kp R     &kp T                                   &kp Y      &kp U     &kp I     &kp O    &kp P    &kp SQT
+            &kp LSHFT &kp A  &kp S    &kp D    &kp F     &kp G                                   &kp H      &kp J     &kp K     &kp L    &kp SEMI &kp BSPC
+            &kp LCTRL &kp Z  &kp X    &kp C    &kp V     &kp B      &kp C_MUTE &rgb_ug RGB_TOG   &kp N      &kp M     &kp COMMA &kp DOT  &kp FSLH &kp DEL
+                            &kp LGUI &kp LALT &kp CAPS  &mo LOWER  &kp RET    &kp SPACE         &mo RAISE  &kp HOME  &kp END   &kp RGUI
+                        >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rgb_encoder_hu>;
-        };
+                        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rgb_encoder_hu>;
+                    };
 
         lower_layer {
             display-name = "lower";
-// TODO: Some binds are waiting for shifted keycode support.
-// ------------------------------------------------------------------------------------------------------------
-// |  F12  |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
-// |       |     |  (  |  )   |  [   |  ]   |                   |  +   |  7    |  8    |  9   |       |       |
-// |       |     |  &  |  |   |  {   |  }   |                   |  -   |  4    |  5    |  6   |       |       |
-// |       |     |  /  |  \   |  <   |   >  |        |  |       |  _   |  1    |  2    |  3   |   \   |       |
-//               |     |      |      |      |        |  |   =   |      |       |  0    |      |
-            bindings = <
-&kp F12   &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                     &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
-&trans    &trans    &kp LPAR  &kp RPAR  &kp LBKT  &kp RBKT                   &kp PLUS  &kp N7    &kp N8    &kp N9    &trans    &trans
-&trans    &trans    &kp AMPS  &kp PIPE  &kp LBRC  &kp RBRC                   &kp MINUS &kp N4    &kp N5    &kp N6    &trans    &trans
-&trans    &trans    &kp FSLH  &kp BSLH  &kp LT    &kp GT    &trans &trans    &kp UNDER &kp N1    &kp N2    &kp N3    &kp BSLH  &trans
-                    &trans    &trans    &trans    &trans    &trans &kp EQUAL &trans    &trans    &kp N0    &trans
-            >;
+            // TODO: Some binds are waiting for shifted keycode support.
+            // ------------------------------------------------------------------------------------------------------------
+            // |  F12  |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
+            // |       |     |  (  |  )   |  [   |  ]   |                   |  +   |  7    |  8    |  9   |       |       |
+            // |       |     |  &  |  |   |  {   |  }   |                   |  -   |  4    |  5    |  6   |       |       |
+            // |       |     |  /  |  \   |  <   |   >  |        |  |       |  _   |  1    |  2    |  3   |   \   |       |
+            //               |     |      |      |      |        |  |   =   |      |       |  0    |      |
+                        bindings = <
+            &kp F12   &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                     &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
+            &trans    &trans    &kp LPAR  &kp RPAR  &kp LBKT  &kp RBKT                   &kp PLUS  &kp N7    &kp N8    &kp N9    &trans    &trans
+            &trans    &trans    &kp AMPS  &kp PIPE  &kp LBRC  &kp RBRC                   &kp MINUS &kp N4    &kp N5    &kp N6    &trans    &trans
+            &trans    &trans    &kp FSLH  &kp BSLH  &kp LT    &kp GT    &trans &trans    &kp UNDER &kp N1    &kp N2    &kp N3    &kp BSLH  &trans
+                                &trans    &trans    &trans    &trans    &trans &kp EQUAL &trans    &trans    &kp N0    &trans
+                        >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rgb_encoder_sa>;
-        };
+                        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rgb_encoder_sa>;
+                    };
 
         raise_layer {
             display-name = "raise";
-// ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1 | BT2 | BT3  | BT4  | BT5 |                       |      |         |         |         |       |ZMK STUDIO |
-// |       |     |  ^  |      |  !   |  @  |                       |      |         |         |         |       |           |
-// |       | <-  |  v  |  ->  |  #   |  $  |                       |      |         |         |         |       |  EXTPWR   |
-// |       |     |     |      |  %   |  *  |RGB_EFF|        |      |      |         |         |         |       |           |
-//               |     |      |      |     |  =    |        |      |      |         |         |         |
-            bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                          &trans &trans  &trans &trans &trans  &studio_unlock
-&trans     &trans       &kp UP       &trans       &kp EXCL     &kp AT                                &trans &trans  &trans &trans &trans  &trans
-&trans     &kp LEFT     &kp DOWN     &kp RIGHT    &kp HASH     &kp DLLR                              &trans &trans  &trans &trans &trans  &ext_power EP_TOG
-&trans     &trans       &trans       &trans       &kp PRCNT    &kp ASTRK   &rgb_ug RGB_EFF   &trans  &trans &trans  &trans &trans &trans  &trans
-                        &trans       &trans       &trans       &trans      &kp EQUAL         &trans  &trans &trans  &trans &trans  
-            >;
+            // ------------------------------------------------------------------------------------------------------------
+            // | BTCLR | BT1 | BT2 | BT3  | BT4  | BT5 |                       |      |         |         |         |       |ZMK STUDIO |
+            // |       |     |  ^  |      |  !   |  @  |                       |      |         |         |         |       |           |
+            // |       | <-  |  v  |  ->  |  #   |  $  |                       |      |         |         |         |       |  EXTPWR   |
+            // |       |     |     |      |  %   |  *  |RGB_EFF|        |      |      |         |         |         |       |           |
+            //               |     |      |      |     |  =    |        |      |      |         |         |         |
+                        bindings = <
+            &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                          &trans &trans  &trans &trans &trans  &studio_unlock
+            &trans     &trans       &kp UP       &trans       &kp EXCL     &kp AT                                &trans &trans  &trans &trans &trans  &trans
+            &trans     &kp LEFT     &kp DOWN     &kp RIGHT    &kp HASH     &kp DLLR                              &trans &trans  &trans &trans &trans  &ext_power EP_TOG
+            &trans     &trans       &trans       &trans       &kp PRCNT    &kp ASTRK   &rgb_ug RGB_EFF   &trans  &trans &trans  &trans &trans &trans  &trans
+                                    &trans       &trans       &trans       &trans      &kp EQUAL         &trans  &trans &trans  &trans &trans  
+                        >;
 
-            sensor-bindings = <&rgb_encoder_bri &inc_dec_kp PG_UP PG_DN>;
-        };
+                        sensor-bindings = <&rgb_encoder_bri &inc_dec_kp PG_UP PG_DN>;
+                    };
 
         adjust_layer {
-// ----------------------------------------------------------------------------------------------------------------------------
-// |   |   |   |   |   |   |                 |   |   |   |   |   |   |
-// |   |   |   |   |   |   |                 |   |   |   |   |   |   |
-// |   |   |   |   |   |   |                 |   |   |   |   |   |   |
-// |   |   |   |   |   |   |   |        |    |   |   |   |   |   |   |
-//         |   |   |   |   |   |        |    |   |   |   |   |
-            display-name = "adjust";
-            bindings = <
-&none  &none  &none  &none  &none  &none                   &none  &none  &none  &none  &none  &none  
-&none  &none  &none  &none  &none  &none                   &none  &none  &none  &none  &none  &none  
-&none  &none  &none  &none  &none  &none                   &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none    &none   &none  &none  &none  &none  &none  &none
-              &none  &none  &none  &none  &none    &none   &none  &none  &none  &none 
-            >;
+            // ----------------------------------------------------------------------------------------------------------------------------
+            // |   |   |   |   |   |   |                 |   |   |   |   |   |   |
+            // |   |   |   |   |   |   |                 |   |   |   |   |   |   |
+            // |   |   |   |   |   |   |                 |   |   |   |   |   |   |
+            // |   |   |   |   |   |   |   |        |    |   |   |   |   |   |   |
+            //         |   |   |   |   |   |        |    |   |   |   |   |
+                        display-name = "adjust";
+                        bindings = <
+            &none  &none  &none  &none  &none  &none                   &none  &none  &none  &none  &none  &none  
+            &none  &none  &none  &none  &none  &none                   &none  &none  &none  &none  &none  &none  
+            &none  &none  &none  &none  &none  &none                   &none  &none  &none  &none  &none  &none
+            &none  &none  &none  &none  &none  &none  &none    &none   &none  &none  &none  &none  &none  &none
+                        &none  &none  &none  &none  &none    &none   &none  &none  &none  &none 
+                        >;
         };
     };
 };
