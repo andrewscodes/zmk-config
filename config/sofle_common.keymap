@@ -99,13 +99,4 @@
         };
 
     };
-
-rotary_encoders {
-        compatible = "zmk,behavior-encoder";
-        rotary_encoder_0 {
-            bindings = <&kp C_VOL_DN>, <&kp C_VOL_UP>;
-            resolution = <4>; // Increases step sensitivity
-        };
-    };
-
 };
