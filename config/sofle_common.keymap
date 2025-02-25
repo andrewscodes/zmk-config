@@ -15,19 +15,19 @@
         rgb_encoder_bri: rgb_encoder_bri {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_underglow RGB_BRI>, <&rgb_underglow RGB_BRD>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
         };
 
         rgb_encoder_hu: rgb_encoder_hu {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_underglow RGB_HUD>, <&rgb_underglow RGB_HUI>;
+            bindings = <&rgb_ug RGB_HUD>, <&rgb_ug RGB_HUI>;
         };
 
         rgb_encoder_sa: rgb_encoder_sa {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_underglow RGB_SAD>, <&rgb_underglow RGB_SAI>;
+            bindings = <&rgb_ug RGB_SAD>, <&rgb_ug RGB_SAI>;
         };
     };
 
