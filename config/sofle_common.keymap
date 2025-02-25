@@ -14,6 +14,7 @@
     behaviors {
         rgb_encoder_bri: rgb_encoder_bri {
             compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
             bindings = <&rgb_ug RGB_BRD>, <&rgb_ug RGB_BRI>;
         };
 
