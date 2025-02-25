@@ -12,13 +12,13 @@
 / {
 
    // Activate ADJUST layer by pressing raise and lower
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        adjust_layer {
-            if-layers = <LOWER RAISE>;
-            then-layer = <ADJUST>;
-        };
-    };
+    // conditional_layers {
+    //     compatible = "zmk,conditional-layers";
+    //     adjust_layer {
+    //         if-layers = <LOWER RAISE>;
+    //         then-layer = <ADJUST>;
+    //     };
+    // };
 
     keymap {
         compatible = "zmk,keymap";
@@ -39,7 +39,7 @@
                  &kp LGUI &kp LALT &kp CAPS  &mo LOWER  &kp RET  &kp SPACE     &mo RAISE  &kp HOME  &kp END   &kp RGUI
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp RGB_HUD RGB_HUI>;
         };
 
         lower_layer {
@@ -59,46 +59,46 @@
                     &trans    &trans    &trans    &trans    &trans &kp EQUAL &trans    &trans    &kp N0    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp RGB_SAD RGB_SAI>;
         };
 
         raise_layer {
             display-name = "raise";
 // ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
-// |       | INS  | PSCR | GUI   |       |      |                | PGUP |      |   ^   |      |       |       |
-// |       | ALT  | CTRL | SHIFT |       | CAPS |                | PGDN |   <- |   v   |  ->  |       |       |
-// |       | UNDO | CUT  | COPY  | PASTE |      |      |  |      |      |      |       |      |       |       |
-//                |      |       |       |      |      |  |      |      |      |       |      |
+// | BTCLR | BT1 | BT2 | BT3  | BT4  | BT5 |                       |      |         |         |         |       |ZMK STUDIO |
+// |       |     |  ^  |      |  !   |  @  |                       |      |         |         |         |       |           |
+// |       | <-  |  v  |  ->  |  #   |  $  |                       |      |         |         |         |       |  EXTPWR   |
+// |       |     |     |      |  %   |  *  |RGB_EFF|        |      |      |         |         |         |       |           |
+//               |     |      |      |     |  =    |        |      |      |         |         |         |
             bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                  &trans    &trans    &trans   &trans    &trans  &trans
-&trans     &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &trans                        &kp PG_UP &trans    &kp UP   &trans    &trans  &trans
-&trans     &kp LALT     &kp LCTRL    &kp LSHFT    &trans       &kp CLCK                      &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &trans  &trans
-&trans     &kp K_UNDO   &kp K_CUT    &kp K_COPY   &kp K_PASTE  &trans        &trans  &trans  &trans    &trans    &trans   &trans    &trans  &trans
-                        &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans    &trans   &trans
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                          &trans &trans  &trans &trans &trans  &studio_unlock
+&trans     &trans       &kp UP       &trans       &kp EXCL     &kp AT                                &trans &trans  &trans &trans &trans  &trans
+&trans     &kp LEFT     &kp DOWN     &kp RIGHT    &kp HASH     &kp DLLR                              &trans &trans  &trans &trans &trans  &ext_power EP_TOG
+&trans     &trans       &trans       &trans       &kp PRCNT    &kp ASTRK   &rgb_ug RGB_EFF   &trans  &trans &trans  &trans &trans &trans  &trans
+                        &trans       &trans       &trans       &trans      &kp EQUAL         &trans  &trans &trans  &trans &trans  
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp RGB_BRI RGB_BRD &inc_dec_kp PG_UP PG_DN>;
         };
 
-        adjust_layer {
-// ----------------------------------------------------------------------------------------------------------------------------
-// | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |ZMK STUDIO|
-// | EXTPWR | RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
-// | EP_ON  | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
-// |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
-//                    |         |         |         |         |         | |      |      |      |       |      |
-            display-name = "adjust";
-            bindings = <
-&bt BT_CLR        &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                            &none &none &none &none &none &studio_unlock
-&ext_power EP_TOG &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_EFF                         &none &none &none &none &none &none
-&ext_power EP_ON  &rgb_ug RGB_BRD &rgb_ug RGB_BRI &none           &none           &none                                   &none &none &none &none &none &none
-&none             &none           &none           &none           &none           &none            &rgb_ug RGB_TOG &none  &none &none &none &none &none &none
-                                  &none           &none           &none           &none            &none           &none  &none &none &none &none
-            >;
-        };
+//         adjust_layer {
+// // ----------------------------------------------------------------------------------------------------------------------------
+// // |   |   |   |   |   |   |                 |   |   |   |   |   |   |
+// // |   |   |   |   |   |   |                 |   |   |   |   |   |   |
+// // |   |   |   |   |   |   |                 |   |   |   |   |   |   |
+// // |   |   |   |   |   |   |   |        |    |   |   |   |   |   |   |
+// //         |   |   |   |   |   |        |    |   |   |   |   |
+//             display-name = "adjust";
+//             bindings = <
+// &none  &none  &none  &none  &none  &none                   &none  &none  &none  &none  &none  &none  
+// &none  &none  &none  &none  &none  &none                   &none  &none  &none  &none  &none  &none  
+// &none  &none  &none  &none  &none  &none                   &none  &none  &none  &none  &none  &none
+// &none  &none  &none  &none  &none  &none  &none    &none   &none  &none  &none  &none  &none  &none
+//               &none  &none  &none  &none  &none    &none   &none  &none  &none  &none 
+//             >;
+//         };
 
-    };
+//     };
 
 rotary_encoders {
         compatible = "zmk,behavior-encoder";
