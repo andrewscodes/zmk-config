@@ -11,6 +11,28 @@
 
 / {
 
+    behaviors {
+        rgb_encoder_bri: rgb_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        };
+
+        rgb_encoder_hu: rgb_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_HUD>, <&rgb_ug RGB_HUI>;
+        };
+
+        rgb_encoder_sa: rgb_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_SAD>, <&rgb_ug RGB_SAI>;
+        };
+    };
+    
+
+
    //Activate ADJUST layer by pressing raise and lower
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -39,7 +61,7 @@
                  &kp LGUI &kp LALT &kp CAPS  &mo LOWER  &kp RET    &kp SPACE         &mo RAISE  &kp HOME  &kp END   &kp RGUI
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp RGB_HUD RGB_HUI>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rgb_encoder_hu>;
         };
 
         lower_layer {
@@ -59,7 +81,7 @@
                     &trans    &trans    &trans    &trans    &trans &kp EQUAL &trans    &trans    &kp N0    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp RGB_SAD RGB_SAI>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rgb_encoder_sa>;
         };
 
         raise_layer {
@@ -78,7 +100,7 @@
                         &trans       &trans       &trans       &trans      &kp EQUAL         &trans  &trans &trans  &trans &trans  
             >;
 
-            sensor-bindings = <&inc_dec_kp RGB_BRI RGB_BRD &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&rgb_encoder_bri &inc_dec_kp PG_UP PG_DN>;
         };
 
         adjust_layer {
