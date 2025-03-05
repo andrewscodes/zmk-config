@@ -38,7 +38,7 @@
                 #binding-cells = <0>;
                 bindings
                     = <&macro_press &kp LCTRL &kp LSHFT &kp TILDE2>
-                    , <&macro_tap &kp n>
+                    , <&macro_tap &kp N>
                     , <&macro_release &kp LCTRL &kp LSHFT &kp TILDE2>
                     ;
             };
