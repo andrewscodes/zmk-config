@@ -12,7 +12,7 @@
 / {
 
     behaviors {
-        encoder_fast: encoder_fast {
+        fast_encoder: fast_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&macro_fast_vol_dn>, <&macro_fast_vol_up>;
@@ -38,7 +38,24 @@
     };
 
 
-    macros {
+    macros {      
+              
+            macro_fast_vol_up: macro_fast_vol_up {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                wait-ms = <0>;
+                tap-ms = <0>;
+                bindings = <&kp C_VOL_UP &kp C_VOL_UP>;
+            };
+
+            macro_fast_vol_dn: macro_fast_vol_dn {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                wait-ms = <0>;
+                tap-ms = <0>;
+                bindings = <&kp C_VOL_DN &kp C_VOL_DN>;
+            };
+
             NTIL: NTIL {
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
@@ -47,22 +64,6 @@
                     , <&macro_tap &kp KP_N1 &kp KP_N6 &kp KP_N4>
                     , <&macro_release &kp LALT>
                     ;
-            };
-
-            macro_fast_vol_up: macro_fast_vol_up {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                wait-ms = <30>;
-                tap-ms = <40>;
-                bindings = <&kp C_VOL_UP &kp C_VOL_UP>;
-            };
-
-            macro_fast_vol_dn: macro_fast_vol_dn {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                wait-ms = <30>;
-                tap-ms = <40>;
-                bindings = <&kp C_VOL_DN &kp C_VOL_DN>;
             };
     };
     
@@ -101,7 +102,7 @@
                             &kp LGUI &kp LALT &kp CAPS  &mo LOWER  &kp RET    &kp SPACE         &mo RAISE  &kp HOME  &kp END   &kp RGUI
                         >;
 
-                        sensor-bindings = <&encoder_fast &rgb_encoder_hu>;
+                        sensor-bindings = <&fast_encoder &rgb_encoder_hu>;
                     };
 
         lower_layer {
