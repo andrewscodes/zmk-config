@@ -12,6 +12,12 @@
 / {
 
     behaviors {
+        fast_encoder: fast_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&macro_fast_vol_dn>, <&macro_fast_vol_up>;
+        };        
+
         rgb_encoder_bri: rgb_encoder_bri {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -32,7 +38,24 @@
     };
 
 
-    macros {
+    macros {      
+              
+            macro_fast_vol_up: macro_fast_vol_up {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                wait-ms = <0>;
+                tap-ms = <0>;
+                bindings = <&kp C_VOL_UP &kp C_VOL_UP>;
+            };
+
+            macro_fast_vol_dn: macro_fast_vol_dn {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                wait-ms = <0>;
+                tap-ms = <0>;
+                bindings = <&kp C_VOL_DN &kp C_VOL_DN>;
+            };
+
             NTIL: NTIL {
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
@@ -79,7 +102,7 @@
                             &kp LGUI &kp LALT &kp CAPS  &mo LOWER  &kp RET    &kp SPACE         &mo RAISE  &kp HOME  &kp END   &kp RGUI
                         >;
 
-                        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rgb_encoder_hu>;
+                        sensor-bindings = <&fast_encoder &rgb_encoder_hu>;
                     };
 
         lower_layer {
