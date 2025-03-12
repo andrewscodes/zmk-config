@@ -15,6 +15,7 @@
 #define RAISE 2
 #define ADJUST 3
 
+//In case to change the pin for a different one
 &kscan0 {
     row-gpios
             = <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
