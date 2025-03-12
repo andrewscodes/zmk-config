@@ -16,17 +16,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&macro_fast_vol_dn>, <&macro_fast_vol_up>;
-        };
-
-        macro_fast_vol_up: macro_fast_vol_up {
-            compatible = "zmk,behavior-macro";
-            bindings = <&kp C_VOL_UP>, <&kp C_VOL_UP>;  
-        };
-
-        macro_fast_vol_dn: macro_fast_vol_dn {
-            compatible = "zmk,behavior-macro";
-            bindings = <&kp C_VOL_DN>, <&kp C_VOL_DN>;
-        };
+        };        
 
         rgb_encoder_bri: rgb_encoder_bri {
             compatible = "zmk,behavior-sensor-rotate";
@@ -57,6 +47,22 @@
                     , <&macro_tap &kp KP_N1 &kp KP_N6 &kp KP_N4>
                     , <&macro_release &kp LALT>
                     ;
+            };
+
+            macro_fast_vol_up: macro_fast_vol_up {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp C_VOL_UP &kp C_VOL_UP>;
+            };
+
+            macro_fast_vol_dn: macro_fast_vol_dn {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp C_VOL_DN &kp C_VOL_DN>;
             };
     };
     
