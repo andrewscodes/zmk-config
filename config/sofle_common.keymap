@@ -12,6 +12,13 @@
 / {
 
     behaviors {
+        encoder_fast: encoder_fast {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp VOL_UP>, <&kp VOL_UP>;
+            steps = <1>;
+        };
+
         rgb_encoder_bri: rgb_encoder_bri {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -79,7 +86,7 @@
                             &kp LGUI &kp LALT &kp CAPS  &mo LOWER  &kp RET    &kp SPACE         &mo RAISE  &kp HOME  &kp END   &kp RGUI
                         >;
 
-                        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rgb_encoder_hu>;
+                        sensor-bindings = <&encoder_fast &rgb_encoder_hu>;
                     };
 
         lower_layer {
