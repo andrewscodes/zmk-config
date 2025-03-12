@@ -16,7 +16,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
-            steps = <1>;
+            triggers-per-rotation = <12>;
         };
 
         rgb_encoder_bri: rgb_encoder_bri {
