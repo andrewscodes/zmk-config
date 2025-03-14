@@ -157,7 +157,7 @@
 
         adjust_layer {
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-// |             |             |             |             |  Bootloader |    reset    |                               |  EP Toggle  |    EP On    |    EP Off   |             |             |             |
+// |             |  EP Toggle  |    EP On    |    EP Off   |  Bootloader |    Reset    |                               |  Bootloader |    Reset    |             |             |             |             |
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // |             |             |             |             |             |             |                               |             |             |             |             |             |             |
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -170,11 +170,11 @@
 
                         display-name = "adjust";
                         bindings = <
-            &none  &none  &none  &none  &bootloader  &sys_reset                             &ext_power EP_TOG  &ext_power EP_ON  &ext_power EP_OFF  &none  &none  &none  
-            &none  &none  &none  &none  &none        &none                                  &none              &none  &none  &none  &none  &none  
-            &none  &none  &none  &none  &none        &none                                  &none              &none  &none  &none  &none  &none
-            &none  &none  &none  &none  &none        &none      &none               &none   &none              &none  &none  &none  &none  &none
-                          &none  &none  &none        &none      &none               &none   &none              &none  &none  &none 
+            &none  &ext_power EP_TOG  &ext_power EP_ON  &ext_power EP_OFF  &bootloader  &sys_reset              &bootloader  &sys_reset  &none  &none  &none  &none  
+            &none  &none  &none  &none  &none        &none                                                      &none        &none  &none  &none  &none  &none  
+            &none  &none  &none  &none  &none        &none                                                      &none        &none  &none  &none  &none  &none
+            &none  &none  &none  &none  &none        &none      &none                                   &none   &none        &none  &none  &none  &none  &none
+                          &none  &none  &none        &none      &none                                   &none   &none        &none  &none  &none 
                         >;
         };
     };
