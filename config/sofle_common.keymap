@@ -157,7 +157,7 @@
 
         adjust_layer {
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-// |             |  EP Toggle  |    EP On    |    EP Off   |  Bootloader |    Reset    |                               |  Bootloader |    Reset    |             |             |             |             |
+// |             |  EP Toggle  |    EP On    |    EP Off   |  Bootloader |    Reset    |                               |    Reset    |  Bootloader |             |             |             |             |
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // |             |             |             |             |             |             |                               |             |             |             |             |             |             |
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -170,7 +170,7 @@
 
                         display-name = "adjust";
                         bindings = <
-            &none  &ext_power EP_TOG  &ext_power EP_ON  &ext_power EP_OFF  &bootloader  &sys_reset              &bootloader  &sys_reset  &none  &none  &none  &none  
+            &none  &ext_power EP_TOG  &ext_power EP_ON  &ext_power EP_OFF  &bootloader  &sys_reset              &sys_reset   &bootloader   &none  &none  &none  &none  
             &none  &none  &none  &none  &none        &none                                                      &none        &none  &none  &none  &none  &none  
             &none  &none  &none  &none  &none        &none                                                      &none        &none  &none  &none  &none  &none
             &none  &none  &none  &none  &none        &none      &none                                   &none   &none        &none  &none  &none  &none  &none
