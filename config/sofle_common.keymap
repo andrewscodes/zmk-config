@@ -11,6 +11,10 @@
 
 / {
 
+    &nice_view_spi {
+        cs-gpios = <&gpio1 8 GPIO_ACTIVE_HIGH>;
+    };
+
     behaviors {
         fast_encoder: fast_encoder {
             compatible = "zmk,behavior-sensor-rotate";
