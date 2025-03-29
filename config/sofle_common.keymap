@@ -10,7 +10,7 @@
 #define ADJUST 3
 
 &nice_view_spi {
-    cs-gpios = <&pro_micro 8 GPIO_ACTIVE_HIGH>;  // use D0 (008) for CS niceview + rgb
+    cs-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;  // use D0 (008) for CS niceview + rgb
 };
 
 / {
