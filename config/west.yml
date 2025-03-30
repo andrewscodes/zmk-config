@@ -5,6 +5,9 @@ manifest:
     # nice_oled
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
+    # bongo cat
+    - name: dsifry
+      url-base: https://github.com/dsifry
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -13,6 +16,10 @@ manifest:
     # nice_oled
     - name: zmk-nice-oled
       remote: mctechnology17
+      revision: main
+    # bongo cat
+    - name: nice-view-mod
+      remote: dsifry
       revision: main
   self:
     path: config
