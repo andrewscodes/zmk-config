@@ -20,6 +20,6 @@ manifest:
     # bongo cat
     - name: nice-view-mod
       remote: dsifry
-      revision: d0ccc5096b636e4b25d2f29e8e33366e6cafafb4
+      revision: cbc40e433c466e01e90e7dabb99ac8dfa9b02894
   self:
     path: config
