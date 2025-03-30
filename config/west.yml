@@ -7,7 +7,7 @@ manifest:
       url-base: https://github.com/mctechnology17
     # bongo cat
     - name: dsifry
-      url-base: https://github.com/dsifry/nice-view-mod/tree/3fc5ef80faa1651e2f2eedd1d0fd07369e30037f
+      url-base: https://github.com/dsifry
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -20,6 +20,6 @@ manifest:
     # bongo cat
     - name: nice-view-mod
       remote: dsifry
-      revision: main
+      revision: 3fc5ef80faa1651e2f2eedd1d0fd07369e30037f
   self:
     path: config
