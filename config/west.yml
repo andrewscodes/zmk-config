@@ -6,8 +6,8 @@ manifest:
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
     # bongo cat
-    - name: dsifry
-      url-base: https://github.com/dsifry
+    - name: ANDRESDEV-CO
+      url-base: https://github.com/ANDRESDEV-CO
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -19,7 +19,7 @@ manifest:
       revision: main
     # bongo cat
     - name: nice-view-mod
-      remote: dsifry
-      revision: d5884ca8d571de66cf1b48bcd8e96904d794716a
+      remote: ANDRESDEV-CO
+      revision: custom-animation
   self:
     path: config
