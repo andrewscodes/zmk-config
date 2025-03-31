@@ -5,6 +5,9 @@ manifest:
     # nice_oled
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
+    # bongo cat
+    - name: ANDRESDEV-CO
+      url-base: https://github.com/ANDRESDEV-CO
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -14,5 +17,9 @@ manifest:
     - name: zmk-nice-oled
       remote: mctechnology17
       revision: main
+    # bongo cat
+    - name: nice-view-mod
+      remote: ANDRESDEV-CO
+      revision: custom-animation
   self:
     path: config
