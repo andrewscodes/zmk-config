@@ -6,8 +6,8 @@ manifest:
     # - name: mctechnology17
     #   url-base: https://github.com/mctechnology17
     # bongo cat
-    - name: ANDRESDEV-CO
-      url-base: https://github.com/ANDRESDEV-CO
+    # - name: ANDRESDEV-CO
+    #   url-base: https://github.com/ANDRESDEV-CO
   projects:
     - name: zmk
       remote: zmkfirmware
