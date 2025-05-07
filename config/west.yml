@@ -3,8 +3,8 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     # nice_oled
-    - name: mctechnology17
-      url-base: https://github.com/mctechnology17
+    # - name: mctechnology17
+    #   url-base: https://github.com/mctechnology17
     # bongo cat
     - name: ANDRESDEV-CO
       url-base: https://github.com/ANDRESDEV-CO
@@ -14,12 +14,12 @@ manifest:
       revision: main
       import: app/west.yml
     # nice_oled
-    - name: zmk-nice-oled
-      remote: mctechnology17
-      revision: main
+    # - name: zmk-nice-oled
+    #   remote: mctechnology17
+    #   revision: main
     # bongo cat
-    - name: nice-view-mod
-      remote: ANDRESDEV-CO
-      revision: custom-animation
+    # - name: nice-view-mod
+    #   remote: ANDRESDEV-CO
+    #   revision: custom-animation
   self:
     path: config
