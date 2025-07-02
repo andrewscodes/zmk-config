@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: infely
       url-base: https://github.com/infely  
+    - name: kevinpastor
+      url-base: https://github.com/kevinpastor
     # nice_oled
     # - name: mctechnology17
     #   url-base: https://github.com/mctechnology17
@@ -17,6 +19,9 @@ manifest:
       import: app/west.yml
     - name: nice-view-battery
       remote: infely
+      revision: main
+    - name: nice-view-elemental
+      remote: kevinpastor
       revision: main
     # nice_oled
     # - name: zmk-nice-oled
