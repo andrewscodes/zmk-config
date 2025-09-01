@@ -105,7 +105,7 @@
                             &kp LGUI &kp LALT &kp CAPS  &mo LOWER  &kp RET    &kp SPACE         &mo RAISE  &kp HOME  &kp END   &kp RGUI
                         >;
 
-                        sensor-bindings = <&fast_encoder &inc_dec_kp PG_UP PG_DN>;
+                        sensor-bindings = <&fast_encoder &rgb_encoder_bri>;
                     };
 
         lower_layer {
@@ -130,7 +130,7 @@
                                 &trans    &trans    &trans    &trans    &trans &kp EQUAL &trans    &trans    &kp KP_N0    &trans
                         >;
 
-                        sensor-bindings = <&rgb_encoder_hu &rgb_encoder_sa>;
+                        sensor-bindings = <&fast_encoder &rgb_encoder_hu>;
                     };
 
         raise_layer {
@@ -143,7 +143,7 @@
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // |             |             |             |             |      #      |      $      |                               |             |      <-     |      v      |     ->      |             |             |
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────╮    ╭────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// |             |             |             |             |      %      |      *      |   RGB_EFF   |    |            |             |             |             |             |             |             |
+// |             |             |             |             |      %      |      *      |             |    |  RGB_EFF   |             |             |             |             |             |             |
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────├─────────────┤    ├────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
 //                             |             |             |             |             |             |    |            |             |             |             |             |
 //                             ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯    ╰────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
@@ -151,11 +151,11 @@
             &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                          &trans &trans   &trans   &trans    &trans  &trans
             &trans     &trans       &kp UP       &trans       &kp EXCL     &kp AT                                &trans &trans   &kp UP   &trans    &trans  &trans
             &trans     &kp LEFT     &kp DOWN     &kp RIGHT    &kp HASH     &kp DLLR                              &trans &kp LEFT &kp DOWN &kp RIGHT &trans  &trans
-            &trans     &trans       &trans       &trans       &kp PRCNT    &kp ASTRK   &rgb_ug RGB_EFF   &trans  &trans &trans   &trans   &trans    &trans  &trans
+            &trans     &trans       &trans       &trans       &kp PRCNT    &kp ASTRK   &trans   &rgb_ug RGB_EFF  &trans &trans   &trans   &trans    &trans  &trans
                                     &trans       &trans       &trans       &trans      &trans            &trans  &trans &trans   &trans   &trans  
                         >;
 
-                        sensor-bindings = <&rgb_encoder_bri &inc_dec_kp PG_UP PG_DN>;
+                        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &rgb_encoder_sa>;
                     };
 
         adjust_layer {
